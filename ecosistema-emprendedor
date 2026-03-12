@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ecosistema Emprendedor</title>
+
+<style>
+
+body{
+font-family: Arial;
+margin:0;
+background:#f6f8fb;
+color:#333;
+}
+
+header{
+background:#1f3c88;
+color:white;
+padding:20px;
+font-size:24px;
+}
+
+nav{
+background:white;
+padding:10px;
+border-bottom:1px solid #ddd;
+}
+
+nav button{
+margin-right:10px;
+padding:10px 14px;
+border:none;
+background:#e9edf5;
+cursor:pointer;
+border-radius:6px;
+}
+
+section{
+display:none;
+padding:40px;
+}
+
+section.active{
+display:block;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+cursor:pointer;
+}
+
+.card:hover{
+transform:scale(1.02);
+}
+
+h2{
+margin-top:0;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+Ecosistema Emprendedor
+</header>
+
+<nav>
+
+<button onclick="show('home')">Inicio</button>
+<button onclick="show('etapas')">Etapas</button>
+<button onclick="show('rubros')">Rubros</button>
+<button onclick="show('glosario')">Glosario</button>
+<button onclick="show('certificacion')">Certificación HUEACI</button>
+
+</nav>
+
+<!-- HOME -->
+
+<section id="home" class="active">
+
+<h2>Mapa del Ecosistema Emprendedor</h2>
+
+<p>
+El ecosistema emprendedor describe cómo se crean, desarrollan
+y escalan los emprendimientos dentro de la economía.
+</p>
+
+<p>
+Este modelo analiza:
+</p>
+
+<ul>
+<li>Las etapas del emprendimiento</li>
+<li>Los rubros o sectores económicos</li>
+<li>Los actores del ecosistema</li>
+<li>Los pasos necesarios en cada etapa</li>
+</ul>
+
+</section>
+
+<!-- ETAPAS -->
+
+<section id="etapas">
+
+<h2>Etapas del Emprendimiento</h2>
+
+<div class="grid">
+
+<div class="card">Idea</div>
+<div class="card">Validación</div>
+<div class="card">Prototipo</div>
+<div class="card">Producción</div>
+<div class="card">Comercialización</div>
+<div class="card">Escala</div>
+
+</div>
+
+</section>
+
+<!-- RUBROS -->
+
+<section id="rubros">
+
+<h2>Rubros de la Economía</h2>
+
+<div class="grid">
+
+<div class="card" onclick="showRubro('gastronomia')">Gastronomía</div>
+<div class="card" onclick="showRubro('moda')">Moda</div>
+<div class="card" onclick="showRubro('tecnologia')">Tecnología</div>
+<div class="card" onclick="showRubro('servicios')">Servicios</div>
+<div class="card" onclick="showRubro('educacion')">Educación</div>
+<div class="card" onclick="showRubro('construccion')">Construcción</div>
+
+</div>
+
+</section>
+
+<!-- DETALLE RUBRO -->
+
+<section id="rubroDetalle">
+
+<h2 id="tituloRubro"></h2>
+
+<p>Etapas del emprendimiento dentro de este rubro</p>
+
+<div class="grid">
+
+<div class="card" onclick="show('pasosEtapa')">Idea</div>
+<div class="card" onclick="show('pasosEtapa')">Validación</div>
+<div class="card" onclick="show('pasosEtapa')">Prototipo</div>
+<div class="card" onclick="show('pasosEtapa')">Producción</div>
+<div class="card" onclick="show('pasosEtapa')">Comercialización</div>
+
+</div>
+
+</section>
+
+<!-- PASOS POR ETAPA -->
+
+<section id="pasosEtapa">
+
+<h2>Pasos dentro de la etapa</h2>
+
+<ul>
+
+<li>Investigación de mercado</li>
+<li>Definición de propuesta de valor</li>
+<li>Testeo con clientes</li>
+<li>Construcción del MVP</li>
+<li>Iteración</li>
+
+</ul>
+
+</section>
+
+<!-- PASOS RUBRO x ETAPA -->
+
+<section id="pasosRubroEtapa">
+
+<h2>Pasos específicos del rubro</h2>
+
+<ul>
+
+<li>Definir proveedor de insumos</li>
+<li>Diseñar producto</li>
+<li>Validar precio</li>
+<li>Testear canal de venta</li>
+
+</ul>
+
+</section>
+
+<!-- GLOSARIO -->
+
+<section id="glosario">
+
+<h2>Glosario de Conceptos</h2>
+
+<ul>
+
+<li><b>Emprendimiento</b>: iniciativa económica creada para resolver una necesidad.</li>
+
+<li><b>MVP</b>: producto mínimo viable.</li>
+
+<li><b>Escalabilidad</b>: capacidad de crecer sin aumentar proporcionalmente los costos.</li>
+
+<li><b>Propuesta de valor</b>: beneficio principal para el cliente.</li>
+
+</ul>
+
+</section>
+
+<!-- CERTIFICACION -->
+
+<section id="certificacion">
+
+<h2>Certificación HUEACI</h2>
+
+<p>
+
+La certificación HUEACI valida emprendimientos
+que cumplen estándares de impacto económico,
+innovación y sostenibilidad dentro del ecosistema.
+
+</p>
+
+<ul>
+
+<li>Evaluación de modelo de negocio</li>
+<li>Impacto económico</li>
+<li>Capacidad de escalabilidad</li>
+<li>Buenas prácticas emprendedoras</li>
+
+</ul>
+
+</section>
+
+<script>
+
+function show(id){
+
+let sections=document.querySelectorAll("section")
+
+sections.forEach(s=>s.classList.remove("active"))
+
+document.getElementById(id).classList.add("active")
+
+}
+
+function showRubro(nombre){
+
+document.getElementById("tituloRubro").innerText="Rubro: "+nombre
+
+show("rubroDetalle")
+
+}
+
+</script>
+
+</body>
+</html>
